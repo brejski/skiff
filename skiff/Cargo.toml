@@ -1,0 +1,13 @@
+[package]
+name = "skiff"
+description = "A small KVM-based hypervisor for micro VMs (learning project)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+# No dependencies yet, and none from rust-vmm until Part VI. See CLAUDE.md.
+[dependencies]
+
+[lints]
+workspace = true

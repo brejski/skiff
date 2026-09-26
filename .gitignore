@@ -1,0 +1,9 @@
+# Cargo build output
+/target
+
+# Guest artifacts we build or download locally (kernels, disk images, initramfs)
+/guest-assets
+
+# Editor / OS noise
+*.swp
+.DS_Store

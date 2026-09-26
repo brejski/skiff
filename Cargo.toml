@@ -1,0 +1,26 @@
+[workspace]
+members = ["skiff"]
+resolver = "3"
+
+[workspace.package]
+version = "0.0.1"
+edition = "2024"
+license = "Apache-2.0"
+repository = "https://github.com/brejski/skiff"
+
+# Shared lints for every crate in the workspace. Crates opt in with
+# `[lints] workspace = true`.
+[workspace.lints.rust]
+# Later lessons will use `unsafe` a lot (ioctl, mmap). Force every unsafe
+# operation to sit in an explicit `unsafe {}` block, even inside an unsafe fn,
+# so the dangerous lines are visible rather than implied by the signature.
+unsafe_op_in_unsafe_fn = "deny"
+
+[workspace.lints.clippy]
+# Every unsafe block must carry a `// SAFETY:` comment explaining why it is
+# sound. This is the discipline that keeps a hand-written VMM reviewable.
+undocumented_unsafe_blocks = "warn"
+
+# Debug info in release builds: we will be reading a lot of backtraces.
+[profile.release]
+debug = 1
